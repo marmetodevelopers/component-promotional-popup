@@ -1,7 +1,9 @@
+{{ 'section-promotional-popup.css' | asset_url | stylesheet_tag }}
+
 <promotional-popup>
-  <promotional-popup-overlay class="promotional-popup__overlay tw-w-full tw-h-full tw-fixed tw-top-0 tw-left-0 tw-opacity-80 tw-z-[999] tw-bg-[#000000d1] tw-hidden"></promotional-popup-overlay>
-  <promotional-popup-wrapper class="promotional-popup__wrapper tw-w-max tw-fixed tw-top-[50%] tw-left-[50%] tw-translate-x-[-50%] tw-translate-y-[-50%] tw-z-[999] tw-hidden" data-author="FA">
-    <close-button class="close-button tw-absolute tw-cursor-pointer tw-top-0 tw-left-[50%] tw-translate-x-[-50%] tw-translate-y-[-50%] tw-tr tw-bg-primary tw-rounded-[50%] tw-text-center tw-text-h0 bmd:tw-text-h1-p-m tw-text-white tw-pt-4 tw-pb-7 bmd:tw-pb-6 bmd:tw-px-7 tw-px-11">&times;</close-button>
+  <promotional-popup-overlay class="promotional-popup__overlay"></promotional-popup-overlay>
+  <promotional-popup-wrapper class="promotional-popup__wrapper" data-author="FA">
+    <close-button class="close-button">&times;</close-button>
     {% if section.settings.popup_link != blank %}
       <a href="{{ section.settings.popup_link }}" class="promotional-popup__link">
     {% else %}
@@ -11,10 +13,10 @@
       {% render 'responsive-picture',
         desktopImage: section.settings.desktop_popup_image,
         mobileImage: section.settings.mobile_popup_image,
-        img-class: 'tw-w-[31.324rem] tw-h-[31.324rem] md:tw-w-[45rem] md:tw-h-[45rem]'
+        img-class: 'promotional-popup__image'
       %}
     {% else %}
-      {{  'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg tw-h-[27.5rem] tw-w-[27.5rem] md:tw-h-[67.5rem] md:tw-w-[67.5rem]'}}
+      {{  'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg promotional-popup__placeholder'}}
     {% endif %}
     {% if section.settings.popup_link != blank %}
       </a>
